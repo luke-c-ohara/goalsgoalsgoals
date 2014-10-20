@@ -3,7 +3,11 @@ class MatchesController < ApplicationController
   helper MatchesHelper
 
   def index
-    @matches = Match.all
+    @all_matches = Match.find( :all, :order => "DATE(date) ASC")
+
+    @fixtures = Match.find( :all, :conditions => ['date >= ?', Date.today], :order => "DATE(date) ASC")
+
+    # @matches = Match.find( :all, :order => "DATE(date) DESC" , :limit => 11)
 
     respond_to do |format|
       format.html 

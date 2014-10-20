@@ -17,6 +17,10 @@ class TeamsController < ApplicationController
     @home_games = Match.where(hometeam_id: (params[:id]))
     @away_games = Match.where(awayteam_id: (params[:id]))
 
+    @all_games = (@home_games + @away_games).sort_by &:date
+
+    @fixtures = Match.find( :all, :conditions => ['date >= ?', Date.today], :order => "DATE(date) ASC")
+
 
     # @home_results = @home_games.where(hthg: present?)
     # @away_results = @away_games.where(hthg: present?)

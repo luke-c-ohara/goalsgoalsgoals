@@ -15,11 +15,11 @@
     <th>Full time GoalsGalore</th>
   </tr>
 
-<% @matches.each do |match| %>
+<% @all_matches.each do |match| %>
   <tr>
     <td><%= match.div %></td>
     <td><%= match.season %></td>
-    <td><%= match.date %></td>
+    <td><%= match.date.strftime('%d/%m/%y') %></td>
     <td><%= match.hometeam.name %></td>
     <td><%= match.fthg %></td>
     <td><%= match.ftag %></td>
