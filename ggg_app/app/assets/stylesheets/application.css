@@ -11,3 +11,15 @@
  *= require_self
  *= require_tree .
  */
+
+ .bad {
+   background-color: red;
+   border: 5px solid white;
+   /*color: white;*/
+ }
+
+ .good {
+   background-color: rgba(142, 255, 37, 0.90);
+   border: 5px solid white;
+   /*color: white;*/
+ }
