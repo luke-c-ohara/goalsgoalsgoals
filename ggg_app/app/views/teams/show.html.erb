@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<%= @team_page.name %>
+
+<br><br>
+
+<% @home_games.each do |game| %>
+  <% if game.hthg.blank? %>
+      <%= "" %>
+  <% else %>
+    <%= game.awayteam.name %>
+    <%= game.fthg %>
+    <%= game.ftag %>
+    <%= ft_goals(game) %>
+   <% end %> 
+<% end %>
+
+<br><br>
+
+<% @away_games.each do |game| %>
+  <% if game.hthg.blank? %>
+      <%= "" %>
+  <% else %>
+  <%= game.hometeam.name %>
+  <%= game.fthg %>
+  <%= game.ftag %>
+  <%= ft_goals(game) %>
+  <% end %> 
+<% end %>
+
+<br><br>
+
+
+
+
+
+
+
+
