@@ -10,6 +10,8 @@
   </tr> 
 </table>
 
+<table>
+
 <% @all_history.each do |history| %>
   <%= history.hometeam.name %>
   <%= history.fthg %>
@@ -20,3 +22,5 @@
   <%= history.season %>
   <%= ft_goals(history) %> 
 <% end %>
+
+</table>

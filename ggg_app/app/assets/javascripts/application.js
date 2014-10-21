@@ -16,11 +16,13 @@
 //= require searches.js
 //= require_tree .
 
-$(document).ready(function() {
+$(function() {
 
   $("#results").hide();
   $(".right-column").hide();
   $("#datepicker").datepicker({ dateFormat: "dd/mm/yy" });
+
+
   function dates(e){
     e.preventDefault();
     var dataString = { q: $("#datepicker").val() };
@@ -42,12 +44,24 @@ $(document).ready(function() {
   }
 
   $("#submit").click("submit", dates);
+
+  $("#match_details").on("click", function(){
+    alert( "Handler for .click() called." );
+  })
+
+
+
 });
 
 function displayGames(object) {
-  return '<tr><td>'+object.div+ '</td><td>'+object.season+'</td><td>'+object.date+'</td><td>'+object.hometeam_id+'</td><td>'+object.awayteam_id+ '</td></tr>';
+  return '<tr><td>'+object.div+ '</td><td>'+object.season+'</td><td>'+object.date+'</td><td>'+object.hometeam_id+'</td><td><button id="match_details">'+object.id+ '</button></td><td>'+object.awayteam_id+ '</td></tr>';
 
 }
+
+ 
+
+
+
 
 
 

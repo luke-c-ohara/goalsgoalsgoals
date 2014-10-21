@@ -1,49 +1,75 @@
-<%= @team_page.name %>
+
+<h1><%= @team_page.name %></h1>
+
+<br>
+
+<table>
+    <tr>
+      <td>Date</td>
+      <td>Vs</td>
+      <td>Goals</td>
+    </tr>
+
+  <% @home_games.each do |game| %>
+    <% if game.hthg.blank? %>
+        <%= "" %>
+    <% else %>
+    <tr>
+      <td><%= game.date.strftime('%d/%m/%y') %></td>
+      <td><%= game.awayteam.name %></td>
+      <td><%= ft_goals(game) %></td>
+    </tr>
+      <% end %> 
+    <% end %>
+</table>
 
 <br><br>
 
-<% @home_games.each do |game| %>
-  <% if game.hthg.blank? %>
+<table>
+      <tr>
+        <td>Date</td>
+        <td>Vs</td>
+        <td>Goals</td>
+      </tr>
+
+      <% @away_games.each do |game| %>
+        <% if game.hthg.blank? %>
+            <% "" %>
+        <% else %>
+      <tr>
+        <td><%= game.date.strftime('%d/%m/%y') %></td>
+        <td><%= game.hometeam.name %></td>
+        <td><%= ft_goals(game) %></td>
+      </tr>
+        <% end %> 
+      <% end %>
+</table>
+
+<br><br>
+
+<table>
+
+  <tr>
+    <td>Date</td>
+    <td>Home</td>
+    <td></td>
+    <td>Away</td>
+
+  <% @all_games.each do |game| %>
+    <% if game.date <= Date.today %>
       <%= "" %>
-  <% else %>
-    <%= "Home" %>
-    <%= game.fthg %>
-    <%= "-" %>
-    <%= game.ftag %>
-    <%= game.awayteam.name %>
-    <%= ft_goals(game) %>
-   <% end %> 
-<% end %>
-
-
-
-<br><br>
-
-<% @away_games.each do |game| %>
-  <% if game.hthg.blank? %>
-      <%= "" %>
-  <% else %>
-  <%= game.hometeam.name %>
-  <%= game.fthg %>
-  <%= "-" %>
-  <%= game.ftag %>
-  <%= "Away" %>
-  <%= ft_goals(game) %>
-  <% end %> 
-<% end %>
-
-<br><br>
-
-<% @all_games.each do |game| %>
-  <% if game.date <= Date.today %>
-    <%= "" %>
-  <% else %>
-  <%= game.hometeam.name %>
-  <%= "v" %>
-  <%= game.awayteam.name %>
-  <%= game.date.strftime('%d/%m/%y') %><br>
+    <% else %>
+  </tr>
+  <tr>
+    <td><%= game.date.strftime('%d/%m/%y') %></td>
+    <td><%= game.hometeam.name %></td>
+    <td><%= "v" %></td>
+    <td><%= game.awayteam.name %></td> 
+    </tr> 
   <% end %>
-<% end %>
+  <% end %>
+
+</table>
 
 
 
