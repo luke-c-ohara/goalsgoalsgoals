@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th>Home Team</th>
+    <th>Away Team</th>
+  </tr>
+
+  <tr>
+    <td><%= @match.hometeam.name %></td>
+    <td><%= @match.awayteam.name %></td> 
+  </tr> 
+</table>
+
+<% @all_history.each do |history| %>
+  <%= history.hometeam.name %>
+  <%= history.fthg %>
+  <%= "v" %>
+  <%= history.ftag %>
+  <%= history.awayteam.name %>
+  <%= history.date.strftime('%d/%m/%y') %>
+  <%= history.season %>
+  <%= ft_goals(history) %> 
+<% end %>

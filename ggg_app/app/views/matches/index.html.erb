@@ -1,5 +1,19 @@
 <h1>Listing matches</h1>
 
+<div>
+
+<form id="target" action="destination.html">
+  <input type="text" id="datepicker" size="30">
+  <input type="submit" value="Go">
+</form>
+
+</div>
+
+<div id="results" >
+</div>
+
+<div id="bender_lee">
+
 <table>
   <tr>
     <th>Division</th>
@@ -15,7 +29,7 @@
     <th>Full time GoalsGalore</th>
   </tr>
 
-<% @all_matches.each do |match| %>
+<% @fixtures.each do |match| %>
   <tr>
     <td><%= match.div %></td>
     <td><%= match.season %></td>
@@ -32,5 +46,7 @@
 <% end %>
 </table>
 
-<br />
+</div>
+
+
 

@@ -12,6 +12,15 @@ belongs_to :awayteam, :class_name => "Team"
     end
   end
 
+  def self.search(search)
+    search = Date.parse(search)
+    if search
+      where("date = ?", "#{search}")
+    else
+      scoped
+    end
+  end
+
 end
 
 

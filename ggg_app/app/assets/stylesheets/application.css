@@ -23,3 +23,9 @@
    border: 5px solid white;
    /*color: white;*/
  }
+
+
+ .splash {
+   background-size: cover;
+   text-align: center;
+ }

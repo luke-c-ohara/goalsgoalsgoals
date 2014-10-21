@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <%= @team_page.name %>
 
 <br><br>
@@ -10,11 +8,14 @@
   <% else %>
     <%= "Home" %>
     <%= game.fthg %>
+    <%= "-" %>
     <%= game.ftag %>
     <%= game.awayteam.name %>
     <%= ft_goals(game) %>
    <% end %> 
 <% end %>
+
+
 
 <br><br>
 
@@ -22,10 +23,11 @@
   <% if game.hthg.blank? %>
       <%= "" %>
   <% else %>
-  <%= "Away" %>
-  <%= game.fthg %>
-  <%= game.ftag %>
   <%= game.hometeam.name %>
+  <%= game.fthg %>
+  <%= "-" %>
+  <%= game.ftag %>
+  <%= "Away" %>
   <%= ft_goals(game) %>
   <% end %> 
 <% end %>
@@ -33,10 +35,14 @@
 <br><br>
 
 <% @all_games.each do |game| %>
+  <% if game.date <= Date.today %>
+    <%= "" %>
+  <% else %>
   <%= game.hometeam.name %>
   <%= "v" %>
   <%= game.awayteam.name %>
   <%= game.date.strftime('%d/%m/%y') %><br>
+  <% end %>
 <% end %>
 
 

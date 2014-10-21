@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
   end
 
   def show
+    
     @matches = Match.all
     @teams = Team.all
     @team_page = Team.find(params[:id])
