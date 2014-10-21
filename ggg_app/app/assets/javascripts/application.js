@@ -13,14 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui.js
+//= require searches.js
 //= require_tree .
 
 $(document).ready(function() {
 
+  $("#results").hide();
+  $(".right-column").hide();
+  $("#datepicker").datepicker({ dateFormat: "dd/mm/yy" });
   function dates(e){
     e.preventDefault();
-    $("#datepicker").datepicker({ dateFormat: "dd/mm/yy" });
-
     var dataString = { q: $("#datepicker").val() };
 
     $.ajax({
@@ -28,21 +30,27 @@ $(document).ready(function() {
         url: "/matches",
         data: dataString,
         dataType: "JSON",
-          success: function(data){
-          console.log(data);
-          data.forEach(displayGames)
+        success: function(data){
+          var tmp= $('<div></div>');
+          $.each(data, function(k, v){
+            $(tmp).append(displayGames(v));
+          });
+          $('.joined tbody').html(tmp.html());
+          $("#results").slideToggle()
         }
     }); 
- 
   }
 
-  $("#target").on("submit", dates);
+  $("#submit").click("submit", dates);
 });
 
 function displayGames(object) {
-  $("#results").append("<p>"+ object.hometeam_id +"</p>");
+  return '<tr><td>'+object.div+ '</td><td>'+object.season+'</td><td>'+object.date+'</td><td>'+object.hometeam_id+'</td><td>'+object.awayteam_id+ '</td></tr>';
 
 }
+
+
+
 
 
 

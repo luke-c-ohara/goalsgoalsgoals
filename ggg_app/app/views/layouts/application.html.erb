@@ -5,12 +5,9 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" type="text/css" href="normalize.css">
-  <link rel="stylesheet" type="text/css" href="foundation.css.scss">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-    <link rel="stylesheet" href="/resources/demos/style.css">
 </head>
 <body>
   <header>
@@ -23,8 +20,8 @@
 
         <section class="top-bar-section">
           <ul class="right">
-            <li><%= link_to "Home" %></li>
-            <li><%= link_to "About" %></li>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "About", home_about_path %></li>
             <li><%= link_to "Fixtures" %></li>
             <li><%= link_to "Results", matches_path %></li>
             <li><%= link_to "Teams", teams_path %></li>
