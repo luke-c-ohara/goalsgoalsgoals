@@ -32,19 +32,19 @@ class MatchesController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
-    hometeam = @match.hometeam 
-    awayteam = @match.awayteam
+    @hometeam = @match.hometeam 
+    @awayteam = @match.awayteam
 
-    @history_1 = Match.where(hometeam_id: hometeam, awayteam_id:awayteam)
-    @history_2 = Match.where(hometeam_id: awayteam, awayteam_id:hometeam)
+    @history_1 = Match.where(hometeam_id: @hometeam, awayteam_id:@awayteam)
+    @history_2 = Match.where(hometeam_id: @awayteam, awayteam_id:@hometeam)
 
     @all_history = (@history_1 + @history_2).sort_by &:date
 
-    @hometeam_form =hometeam.matches.where(['date < ?', Date.today]).order("date desc").limit(5)
-    @awayteam_form =awayteam.matches.where(['date < ?', Date.today]).order("date desc").limit(5)
+    @hometeam_form =@hometeam.matches.where(['date < ?', Date.today]).order("date desc").limit(5)
+    @awayteam_form =@awayteam.matches.where(['date < ?', Date.today]).order("date desc").limit(5)
 
-    @last_home =  @hometeam_form.select([:fthg, :ftag])
-    @last_away =  @awayteam_form.select([:fthg, :ftag])
+    @last_home =  @hometeam_form.select([:fthg, :ftag, :awayteam_id, :hometeam_id])
+    @last_away =  @awayteam_form.select([:fthg, :ftag, :hometeam_id, :awayteam_id])
 
 
     respond_to do |format|

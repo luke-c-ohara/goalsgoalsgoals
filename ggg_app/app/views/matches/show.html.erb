@@ -32,7 +32,7 @@
   <tr>
     <th>Score</th>
     <th>Goals</th>
-    <th></th>
+    <th>Away Team</th>
     <th></th>
     <th></th>
     <th></th>
@@ -42,8 +42,12 @@
     <th></th>
   </tr>
   <% @last_home.each do |game| %>
-  <td><%= game.fthg %> <%= game.ftag %></td>
-  <td><%= ft_goals(game) %></td>
+    <% if game.awayteam == @hometeam %>
+        <td><%= game.fthg %> <%= game.ftag %><%= game.hometeam.name %></td>
+    <% else %>
+  <td><%= game.fthg %> <%= game.ftag %><%= game.awayteam.name %></td>
+  <% end %>
+  <td><%= ft_goals(game) %></td>  
   <% end %>
 </table>
 
@@ -62,7 +66,11 @@
     <th></th>
   </tr>
   <% @last_away.each do |game| %>
-  <td><%= game.fthg %> <%= game.ftag %></td>
+    <% if game.hometeam == @awayteam %>
+        <td><%= game.fthg %> <%= game.ftag %><%= game.awayteam.name %></td>
+    <% else %>
+  <td><%= game.fthg %> <%= game.ftag %><%= game.hometeam.name %></td>
+  <% end %>
   <td><%= ft_goals(game) %></td>
   <% end %>
 </table>
