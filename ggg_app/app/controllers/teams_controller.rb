@@ -24,7 +24,7 @@ class TeamsController < ApplicationController
 
     @recent_form = @team_page.matches.where(['date < ?', Date.today]).order("date desc").limit(5)
 
-    @last =  @recent_form.select([:fthg, :ftag])
+    @last =  @recent_form.select([:fthg, :ftag, :hometeam_id, :awayteam_id])
 
 
 
