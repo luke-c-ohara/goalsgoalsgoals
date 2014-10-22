@@ -44,9 +44,9 @@ $(function() {
 
   $("#target").on("submit", dates);
 
-  $("body").on("click", "#match_details",function(){
-    home = $(".hometeam")[0].innerHTML
-    console.log(home);
+  $("body").on("click", "#hometeam",function(){
+    // home = $(".hometeam")[0].innerHTML
+    console.log("home");
   });
 
 

@@ -1,8 +1,15 @@
 
 <h1><%= @team_page.name %></h1>
 
-<br>
+<h2>Last 5 games form</h2>
 
+<p><% @last.each do |game| %> </p>
+<p><%= game.fthg %> <%= game.ftag %></p>
+<p><%= ft_goals(game) %></p>
+<% end %>
+
+<br>
+<h2>Home form</h2>
 <table id="home_form">
     <tr>
       <td>Date</td>
@@ -24,7 +31,7 @@
 </table>
 
 <br><br>
-
+<h2>Away form</h2>
 <table id="away_form">
       <tr>
         <td>Date</td>
@@ -45,8 +52,32 @@
       <% end %>
 </table>
 
-<table>
+<br><br>
+<h2>Season form</h2>
+<table id="all_form">
+      <tr>
+        <td>Date</td>
+        <td>Hometeam</td>
+        <td>Awayteam</td>
+        <td>Goals</td>
+      </tr>
 
+      <% @all_results.each do |game| %>
+        <% if game.hthg.blank? %>
+            <% "" %>
+        <% else %>
+      <tr>
+        <td><%= game.date.strftime('%d/%m/%y') %></td>
+        <td><%= game.hometeam.name %></td>
+        <td><%= game.awayteam.name %></td>
+        <td><%= ft_goals(game) %></td>
+      </tr>
+        <% end %> 
+      <% end %>
+</table>
+
+<h2>Fixtures</h2>
+<table>
   <tr>
     <td>Date</td>
     <td>Home</td>

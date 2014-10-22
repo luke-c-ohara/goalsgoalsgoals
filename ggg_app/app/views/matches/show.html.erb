@@ -1,3 +1,5 @@
+<br>
+
 <table>
   <tr>
     <th>Home Team</th>
@@ -24,3 +26,44 @@
 <% end %>
 
 </table>
+
+<h2>Home team's Last 5 games</h2>
+<table>
+  <tr>
+    <th>Score</th>
+    <th>Goals</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @last_home.each do |game| %>
+  <td><%= game.fthg %> <%= game.ftag %></td>
+  <td><%= ft_goals(game) %></td>
+  <% end %>
+</table>
+
+<h2>Away team's Last 5 games</h2>
+<table>
+  <tr>
+    <th>Score</th>
+    <th>Goals</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @last_away.each do |game| %>
+  <td><%= game.fthg %> <%= game.ftag %></td>
+  <td><%= ft_goals(game) %></td>
+  <% end %>
+</table>
+

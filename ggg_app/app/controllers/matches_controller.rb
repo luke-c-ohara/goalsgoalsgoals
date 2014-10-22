@@ -40,6 +40,12 @@ class MatchesController < ApplicationController
 
     @all_history = (@history_1 + @history_2).sort_by &:date
 
+    @hometeam_form =hometeam.matches.where(['date < ?', Date.today]).order("date desc").limit(5)
+    @awayteam_form =awayteam.matches.where(['date < ?', Date.today]).order("date desc").limit(5)
+
+    @last_home =  @hometeam_form.select([:fthg, :ftag])
+    @last_away =  @awayteam_form.select([:fthg, :ftag])
+
 
     respond_to do |format|
       format.html 

@@ -15,10 +15,18 @@ class TeamsController < ApplicationController
     @teams = Team.all
     @team_page = Team.find(params[:id])
 
-    @home_games = Match.where(hometeam_id: (params[:id]))
-    @away_games = Match.where(awayteam_id: (params[:id]))
+    @home_games = Match.where(hometeam_id: (params[:id])).limit(5).sort_by &:date
+    @away_games = Match.where(awayteam_id: (params[:id])).limit(5).sort_by &:date
 
     @all_games = @team_page.matches.where(['date >= ?', Date.today]).sort_by &:date
+
+    @all_results = @team_page.matches.where(['date < ?', Date.today]).limit(10).sort_by &:date
+
+    @recent_form = @team_page.matches.where(['date < ?', Date.today]).order("date desc").limit(5)
+
+    @last =  @recent_form.select([:fthg, :ftag])
+
+
 
     # @all_games = (@home_games + @away_games).sort_by &:date
 
