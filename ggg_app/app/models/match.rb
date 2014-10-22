@@ -21,6 +21,14 @@ belongs_to :awayteam, :class_name => "Team"
     end
   end
 
+  def ft_goals?
+    fthg.to_i * ftag.to_i != 0
+  end
+
+  def ht_goals?
+    hthg.to_i * htag.to_i != 0
+  end
+
 end
 
 

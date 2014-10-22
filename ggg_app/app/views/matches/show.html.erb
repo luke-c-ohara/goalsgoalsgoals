@@ -3,28 +3,53 @@
 <table>
   <tr>
     <th>Home Team</th>
+    <th>Last 5 Matches</th>
+    <th>Season</th>
+    <th>V</th>
     <th>Away Team</th>
+    <th>Last 5 Matches</th>
+    <th>Season</th>
   </tr>
 
   <tr>
     <td><%= @match.hometeam.name %></td>
+    <td><%= @match.hometeam.form_percentage %>%</td>
+    <td><%= @match.hometeam.last_five_results_percentage %>%</td>
+    <td></td>
     <td><%= @match.awayteam.name %></td> 
+    <td><%= @match.awayteam.form_percentage %>%</td>
+    <td><%= @match.awayteam.last_five_results_percentage %>%</td>
   </tr> 
 </table>
 
 <table>
 
-<% @all_history.each do |history| %>
-  <%= history.hometeam.name %>
-  <%= history.fthg %>
-  <%= "v" %>
-  <%= history.ftag %>
-  <%= history.awayteam.name %>
-  <%= history.date.strftime('%d/%m/%y') %>
-  <%= history.season %>
-  <%= ft_goals(history) %> 
-<% end %>
+<table>
+  <tr>
+    <th>Home Team</th>
+    <th>Home Goals</th>
+    <th></th>
+    <th>Away Goals</th>
+    <th>Away Team</th>
+    <th>Dates</th>
+    <th>Season</th>
+    <th>Goals</th>
+  </tr>
 
+  <tr>
+      <% @all_history.each do |history| %>
+    <td><%= history.hometeam.name %></td>
+    <td><%= history.fthg %></td>
+    <td><%= "v" %></td>
+    <td><%= history.ftag %></td>
+    <td><%= history.awayteam.name %></td>
+    <td><%= history.date.strftime('%d/%m/%y') %></td>
+    <td><%= history.season %></td>
+    <td><%= ft_goals(history) %></td>
+  </tr>   
+    <% end %>
+</table>
+  
 </table>
 
 <h2>Home team's Last 5 games</h2>
@@ -41,7 +66,7 @@
     <th></th>
     <th></th>
   </tr>
-  <% @last_home.each do |game| %>
+  <% @match.hometeam.last_five_results.each do |game| %>
     <% if game.awayteam == @hometeam %>
         <td><%= game.fthg %> <%= game.ftag %><%= game.hometeam.name %></td>
     <% else %>
@@ -65,7 +90,7 @@
     <th></th>
     <th></th>
   </tr>
-  <% @last_away.each do |game| %>
+  <% @match.awayteam.last_five_results.each do |game| %>
     <% if game.hometeam == @awayteam %>
         <td><%= game.fthg %> <%= game.ftag %><%= game.awayteam.name %></td>
     <% else %>
