@@ -22,7 +22,6 @@ $(function() {
   $(".right-column").hide();
   $("#datepicker").datepicker({ dateFormat: "dd/mm/yy" });
 
-
   function dates(e){
     e.preventDefault();
     var dataString = { q: $("#datepicker").val() };
@@ -43,20 +42,21 @@ $(function() {
     }); 
   }
 
-  $("#submit").click("submit", dates);
+  $("#target").on("submit", dates);
 
-  $("#match_details").on("click", function(){
-    alert( "Handler for .click() called." );
-  })
-
+  $("body").on("click", "#match_details",function(){
+    home = $(".hometeam")[0].innerHTML
+    console.log(home);
+  });
 
 
 });
 
 function displayGames(object) {
-  return '<tr><td>'+object.div+ '</td><td>'+object.season+'</td><td>'+object.date+'</td><td>'+object.hometeam_id+'</td><td><button id="match_details">'+object.id+ '</button></td><td>'+object.awayteam_id+ '</td></tr>';
+  return '<tr><td>'+object.div+ '</td><td>'+object.season+'</td><td>'+object.date+'</td><td class="hometeam">'+object.hometeam_id+'</td><td><button id="match_details">'+object.id+ '</button></td><td>'+object.awayteam_id+ '</td></tr>';
 
 }
+
 
  
 

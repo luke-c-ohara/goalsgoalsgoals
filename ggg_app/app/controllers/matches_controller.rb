@@ -16,7 +16,10 @@ class MatchesController < ApplicationController
         format.json { render json: @matches }
     end
 
+  def results
+    @results = Match.all
 
+  end
 
   end
 

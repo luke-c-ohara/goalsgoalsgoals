@@ -18,17 +18,15 @@ class TeamsController < ApplicationController
     @home_games = Match.where(hometeam_id: (params[:id]))
     @away_games = Match.where(awayteam_id: (params[:id]))
 
-    @all_games = (@home_games + @away_games).sort_by &:date
+    @all_games = @team_page.matches.where(['date >= ?', Date.today]).sort_by &:date
 
-    @fixtures = Match.find( :all, :conditions => ['date >= ?', Date.today], :order => "DATE(date) ASC")
+    # @all_games = (@home_games + @away_games).sort_by &:date
 
+    # @fixtures = Match.find( :all, :conditions => ['hometeam_id = ? or awayteam_id = ? and date >= ?', (params[:id]), (params[:id]), Date.today], :order => "DATE(date) ASC")
 
-    # @home_results = @home_games.where(hthg: present?)
-    # @away_results = @away_games.where(hthg: present?)
-
-    # @all_games = Match.where(@away_games || @home_games)
-    # @team = @matches.map(&:hometeam).uniq
+    # @results = Match.find( :all, :conditions => ['hometeam_id = ? or awayteam_id = ? and date < ?', (params[:id]), (params[:id]), Date.today], :order => "DATE(date) ASC")
     
+
     respond_to do |format|
       format.html 
     end
