@@ -5,10 +5,10 @@ namespace :csvimport do
 
     require 'csv'
 
-    # target_url = "http://www.football-data.co.uk/mmz4281/1415/E0.csv"
-    # target_path = "/Users/lukeohara/wdi_working/project_three/ggg_app/tmp/p1.csv"
+    target_url = "http://www.football-data.co.uk/mmz4281/1415/E0.csv"
+    target_path = "/Users/lukeohara/wdi_working/project_three/ggg_app/tmp/p1.csv"
 
-    # Downspout.download_url_to_path( target_url, target_path )
+    Downspout.download_url_to_path( target_url, target_path )
 
     csv_file_path = '/Users/lukeohara/wdi_working/project_three/ggg_app/tmp/p1.csv'
 

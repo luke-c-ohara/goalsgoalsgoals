@@ -1,13 +1,22 @@
 <h1>Fixtures</h1>
 
 <% if params[:controller] == "matches" && params[:action] == "index" %>
-
-<form id="target" class="clearfix" action="destination.html">
-  <input type="text" id="datepicker" size="30" placeholder="Search for fixtures on a specific date">
-  <input type="submit" class="button right" id="submit" value="Go">
-</form>
-
-<% end %>
+<div class="row">
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <div class="small-10 columns">
+          <form id="target" class="clearfix" action="destination.html">
+            <input type="text" id="datepicker" size="30" placeholder="Search for fixtures on a specific date">
+        </div>
+        <div class="small-2 columns">
+          <input type="submit" class="button right" id="submit" value="Go">
+          </form>
+          <% end %>
+        </div>
+      </div>
+   </div>
+</div>
+     
 
 <h2 class="seven_days">This weeks fixtures</h2>
 <table id="seven_days">
@@ -49,13 +58,7 @@
     <th>Season</th>
     <th>Date</th>
     <th>Home Team</th>
-    <th>Home goals </th>
-    <th>Away goals </th>
     <th>Away Team</th>
-    <th>HT Home goals</th>
-    <th>HT Away goals</th>
-    <th>Half time GoalsGalore</th>
-    <th>Full time GoalsGalore</th>
   </tr>
 
 <% @fixtures.each do |match| %>
@@ -64,13 +67,7 @@
     <td><%= match.season %></td>
     <td><%= match.date.strftime('%d/%m/%y') %></td>
     <td><%= link_to match.hometeam.name, team_url(match.hometeam)%></td>
-    <td><%= match.fthg %></td>
-    <td><%= match.ftag %></td>
     <td><%= link_to match.awayteam.name, team_url(match.awayteam)%></td> 
-    <td><%= match.hthg %></td>
-    <td><%= match.htag %></td>
-    <td><%= ht_goals(match) %></td>
-    <td><%= ft_goals(match) %></td>
   </tr> 
 <% end %>
 </table>
