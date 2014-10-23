@@ -14,18 +14,33 @@
     <div class="contain-to-grid">
       <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
         <ul class="title-area">
-          <li class="name"><h1><%= link_to "GOALS GOALS GOALS", root_path %></h1></li>
+          <li class="name"><h1 class="logo"><%= link_to "GOALS GOALS GOALS", root_path %></h1></li>
           <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
         </ul>
-
+        <% unless params[:controller] == "matches" && params[:action] == "index" %>
+        <section class="top-bar-section">
+          <ul class="left">
+            <li class="has-form">
+              <div class="row collapse">
+                <form id="target" method="GET" action="/matches">
+                  <div class="large-8 small-9 columns">
+                    <input type="text" name="q" id="datepicker" size="50" line-height="10" placeholder="Search for fixtures on a specific date">
+                  </div>
+                  <div class="large-4 small-3 columns">
+                    <input type="submit" class="alert button expand" id="submit" value="Go">
+                  </div>
+                </form>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <% end %>
         <section class="top-bar-section">
           <ul class="right">
-            <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "About", home_about_path %></li>
             <li><%= link_to "Fixtures", matches_path %></li>
-            <li><%= link_to "Results", matches_results_path %></li>
+            <li><%= link_to "Results", results_matches_path %></li>
             <li><%= link_to "Teams", teams_path %></li>
-            <li><%= link_to "GGG Predictions" %></li>
             <li class="divider"></li>
           </ul>
         </section>
@@ -33,9 +48,11 @@
     </div>
   </header>
 
-<div class="12 large columns">
-<%= yield %>
-</div>
+  <div class="row">
+    <div class="12 large columns">
+      <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>

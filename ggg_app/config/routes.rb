@@ -1,10 +1,16 @@
 GggApp::Application.routes.draw do
   resources :teams
-  resources :matches 
+  resources :matches do
+    collection do
+      get 'results'
+    end
+  end 
   
   root to: 'home#index'
 
   get 'home/about'
-  get 'matches/results'
+  
+  get '/predictions', to: 'home#predictions'
+
 
 end

@@ -1,0 +1,92 @@
+
+#all_fixtures,
+#last_five,
+#home_form,
+#away_form,
+#all_form,
+#fixtures,
+#seven_days {
+  display: none;
+}
+
+ #title {
+  color: white;
+ }
+
+ .bad {
+   background-color: red;
+   // border: 5px solid white;
+   /*color: white;*/
+ }
+
+ .good {
+   background-color: rgba(142, 255, 37, 0.90);
+   // border: 5px solid white;
+   /*color: white;*/
+ }
+
+ .awesome {
+  background-color: rgba(142, 255, 37, 0.90);
+ }
+
+ .ok {
+  background-color: orange;
+ }
+
+ .about, h1 {
+  color: white;
+ }
+
+ .team_about, h1 {
+  color: white;
+  font-size: 50px;
+ }
+
+
+ .splash {
+   background-size: cover;
+   text-align: center;
+ }
+
+ .splash, h1 {
+  color: white;
+ }
+
+ .splash, h2 {
+  color: white;
+ }
+
+
+.logo {
+  background-color: rgb(54, 54, 54);
+}
+
+#container
+{
+    height:400px;
+    width:400px;
+    position:relative;
+}
+
+.cover
+{    
+    position:absolute;
+    left:0;
+    top:0;
+}
+#text
+{
+    z-index:100;
+    position:absolute;    
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    left:150px;
+    top:350px;
+}
+
+
+
+
+
+

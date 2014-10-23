@@ -1,33 +1,49 @@
-<h1>Listing matches</h1>
+<h1>Fixtures</h1>
 
-<div>
+<% if params[:controller] == "matches" && params[:action] == "index" %>
 
-<form id="target" action="destination.html">
-  <input type="text" id="datepicker" size="30">
-  <input type="submit" class="button" id="submit" value="Go">
+<form id="target" class="clearfix" action="destination.html">
+  <input type="text" id="datepicker" size="30" placeholder="Search for fixtures on a specific date">
+  <input type="submit" class="button right" id="submit" value="Go">
 </form>
 
-</div>
+<% end %>
 
-<div id="results" >
-    <table class="joined">
-        <thead>
-        <tr>
-            <th>Division</th>
-            <th>Season</th>
-            <th>Date</th>
-            <th>Home Team</th>
-            <th>Match details</th>
-            <th>Away Team</th>
-        <tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-</div>
+<h2 class="seven_days">This weeks fixtures</h2>
+<table id="seven_days">
+  <tr>
+    <th>Division</th>
+    <th>Season</th>
+    <th>Date</th>
+    <th>Home Team</th>
+    <th>Last 5</th>
+    <th></th>
+    <th>Away Team</th>
+    <th>Last 5</th>
+    <th>Combined</th>
+    <th>Combined</th>
+    <th>More</th>
+  </tr>
 
+<% @seven_days.each do |match| %>
+  <tr>
+    <td><%= match.div %></td>
+    <td><%= match.season %></td>
+    <td><%= match.date.strftime('%d/%m/%y') %></td>
+    <td><%= link_to match.hometeam.name, team_url(match.hometeam)%></td>
+    <td><%= match.hometeam.last_five_results_percentage %>%</td>
+    <td>V</td>
+    <td><%= link_to match.awayteam.name, team_url(match.awayteam)%></td> 
+    <td><%= match.awayteam.last_five_results_percentage %>%</td>
+    <td><%= both_teams_last_five(match) %></td>
+    <td><%= both_teams_form(match) %></td>
+    <td><%= link_to 'Show', match %></td>
+  </tr> 
+    <% end %>
+</table>
 
-<table class="right-column">
+<h2 class="all_fixtures">All fixtures</h2>
+<table id="all_fixtures">
   <tr>
     <th>Division</th>
     <th>Season</th>
@@ -47,10 +63,10 @@
     <td><%= match.div %></td>
     <td><%= match.season %></td>
     <td><%= match.date.strftime('%d/%m/%y') %></td>
-    <td><%= match.hometeam.name %></td>
+    <td><%= link_to match.hometeam.name, team_url(match.hometeam)%></td>
     <td><%= match.fthg %></td>
     <td><%= match.ftag %></td>
-    <td><%= match.awayteam.name %></td> 
+    <td><%= link_to match.awayteam.name, team_url(match.awayteam)%></td> 
     <td><%= match.hthg %></td>
     <td><%= match.htag %></td>
     <td><%= ht_goals(match) %></td>
@@ -58,6 +74,36 @@
   </tr> 
 <% end %>
 </table>
+
+<div id="search-fixtures" >
+  <table class="joined">
+    <thead>
+      <tr>
+        <th>Division</th>
+        <th>Season</th>
+        <th>Date</th>
+        <th>Home Team</th>
+        <th>Away Team</th>
+      <tr>
+    </thead>
+    <tbody>
+      <% if @matches %>
+        <% @matches.each do |match| %>
+        <tr>
+          <td><%= match.div %></td>
+          <td><%= match.season %></td>
+          <td><%= match.date %></td>
+          <td><%= match.hometeam_id %></td>
+          <td><%= match.awayteam_id %></td>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+
 
 
 

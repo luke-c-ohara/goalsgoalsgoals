@@ -3,24 +3,27 @@ class MatchesController < ApplicationController
   helper MatchesHelper
 
   def index
-    @all_matches = Match.find( :all, :order => "DATE(date) ASC")
-    @fixtures = Match.find( :all, :conditions => ['date >= ?', Date.today], :order => "date ASC")
+    # @all_matches = Match.find( :all, :order => "DATE(date) ASC")
+    
+    @results = Match.where(['date < ?', Date.today]).order("date DESC")
+    @fixtures = Match.where(['date >= ?', Date.today]).order("date ASC")
+    @seven_days = @fixtures.where(['date between ? and ?', Date.today, Date.today + 7]).order("date ASC")
 
     if params[:q]
       @matches = Match.search(params[:q])
     else
       @matches = Match.all
     end
+
     respond_to do |format|
-        format.html # index.html.erb
-        format.json { render json: @matches }
+      format.html # index.html.erb
+      format.json { render json: @matches }
     end
-
-  def results
-    @results = Match.all
-
   end
 
+  def results
+    @results = Match.where(['date < ?', Date.today]).order("date DESC")
+    
   end
 
   def import

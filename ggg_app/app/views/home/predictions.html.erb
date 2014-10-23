@@ -1,22 +1,21 @@
-<h1>Teams</h1>
-
-<p>All teams, percentage of games where both teams have scored.</p>
+<h1>Listing teams</h1>
 
 <table>
   <tr>
     <th>Team</th>
     <th>Last 5 games</th>
     <th>Season Goals</th>
+    <th>View</th>
   </tr>
 
 <% @teams.each do |team| %>
   <tr>
-    <td><%= link_to team.name, team %></td>
+    <td><%= team.name %></td>
     <td><%= team.last_five_results_percentage %>%</td>
     <td><%= team.form_percentage %>%</td>
+    <td><%= link_to 'Show', team %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-

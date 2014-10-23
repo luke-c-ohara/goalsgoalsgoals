@@ -9,6 +9,7 @@ gem 'downspout'
 gem 'pg'
 
 group :development, :test do
+  gem "bullet"
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'

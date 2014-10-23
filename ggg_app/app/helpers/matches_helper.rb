@@ -16,6 +16,28 @@ module MatchesHelper
     end
   end
 
+  def both_teams_last_five(match) 
+    if ((match.hometeam.last_five_results_percentage) + (match.hometeam.last_five_results_percentage)) / 2 >= 70 
+      content_tag(:div, content_tag(:p, "YES"), class: "awesome")
+    elsif ((match.hometeam.last_five_results_percentage) + (match.hometeam.last_five_results_percentage)) / 2 >= 50  
+      content_tag(:div, content_tag(:p, "MAYBE"), class: "ok")
+    else
+      content_tag(:div, content_tag(:p, "NO"), class: "bad")
+    end
+  end
+
+  def both_teams_form(match) 
+    if ((match.hometeam.form_percentage) + (match.hometeam.form_percentage)) / 2 >= 70 
+      content_tag(:div, content_tag(:p, "YES"), class: "awesome")
+    elsif ((match.hometeam.form_percentage) + (match.hometeam.form_percentage)) / 2 >= 50  
+      content_tag(:div, content_tag(:p, "MAYBE"), class: "ok")
+    else
+      content_tag(:div, content_tag(:p, "NO"), class: "bad")
+    end
+  end
+
+
+
   # def team_name(team_id)
   #   case team_id
   #   when 1 then

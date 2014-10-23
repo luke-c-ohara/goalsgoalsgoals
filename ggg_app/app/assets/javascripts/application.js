@@ -18,8 +18,6 @@
 
 $(function() {
 
-  $("#results").hide();
-  $(".right-column").hide();
   $("#datepicker").datepicker({ dateFormat: "dd/mm/yy" });
 
   function dates(e){
@@ -37,23 +35,56 @@ $(function() {
             $(tmp).append(displayGames(v));
           });
           $('.joined tbody').html(tmp.html());
-          $("#results").slideToggle()
+          // $("#search-fixtures").slideToggle()
         }
     }); 
   }
 
-  $("#target").on("submit", dates);
+  if ($('#search-fixtures').length) {
+    $("#target").on("submit", dates);
+  }
+  
+  $("body").on("click", ".last_five",function(){
+    $("#last_five").slideToggle()
+  });
 
-  $("body").on("click", "#hometeam",function(){
-    // home = $(".hometeam")[0].innerHTML
-    console.log("home");
+  $("body").on("click", ".home_form",function(){
+    $("#home_form").slideToggle()
+    
+  });
+
+  $("body").on("click", ".away_form",function(){
+    $("#away_form").slideToggle()
+    
+  });
+
+  $("body").on("click", ".all_form",function(){
+    $("#all_form").slideToggle()
+    
+  });
+
+  $("body").on("click", ".fixtures",function(){
+    $("#fixtures").slideToggle()
+    
+  });
+
+  $("body").on("click", ".seven_days",function(){
+    $("#seven_days").slideToggle()
+      $(this).siblings('#home_last_five').toggle('slow')
+
+  });
+
+
+  $("body").on("click", ".all_fixtures",function(){
+    $("#all_fixtures").slideToggle()
+    
   });
 
 
 });
 
 function displayGames(object) {
-  return '<tr><td>'+object.div+ '</td><td>'+object.season+'</td><td>'+object.date+'</td><td class="hometeam">'+object.hometeam_id+'</td><td><button id="match_details">'+object.id+ '</button></td><td>'+object.awayteam_id+ '</td></tr>';
+  return '<tr><td>'+object.div+ '</td><td>'+object.season+'</td><td>'+object.date+'</td><td>'+object.hometeam_id+'</td><td>'+object.awayteam_id+ '</td></tr>';
 
 }
 

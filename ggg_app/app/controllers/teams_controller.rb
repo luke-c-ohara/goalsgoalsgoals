@@ -25,16 +25,7 @@ class TeamsController < ApplicationController
     @recent_form = @team_page.matches.where(['date < ?', Date.today]).order("date desc").limit(5)
 
     @last =  @recent_form.select([:fthg, :ftag, :hometeam_id, :awayteam_id])
-
-
-
-    # @all_games = (@home_games + @away_games).sort_by &:date
-
-    # @fixtures = Match.find( :all, :conditions => ['hometeam_id = ? or awayteam_id = ? and date >= ?', (params[:id]), (params[:id]), Date.today], :order => "DATE(date) ASC")
-
-    # @results = Match.find( :all, :conditions => ['hometeam_id = ? or awayteam_id = ? and date < ?', (params[:id]), (params[:id]), Date.today], :order => "DATE(date) ASC")
     
-
     respond_to do |format|
       format.html 
     end
