@@ -5,15 +5,63 @@
 #away_form,
 #all_form,
 #fixtures,
+.joined,
 #seven_days {
   display: none;
 }
 
-.team_show h2 {
+.last_five {}
+
+.footer {
+
+bottom: 0;
+width: 100%;
+height: 50px;
+background-color: #014347;
+z-index: 1;
+}
+
+.teams {
+  min-height: 500px;
+}
+
+.team_show {
+  min-height: 500px;
+}
+
+.results {
+  min-height: 500px;
+}
+
+.about {
+  min-height: 500px;
+}
+
+.about p {
+  background-color: #014347;
+  margin-top: 20px;
+}
+
+
+.team_show {
+  min-height: 500px;
+  background-color: #00C176;
+}
+
+
+#logo {
   background-color: #014347;
 }
 
-.team_show h1 {
+#search {
+  background-color: #014347;
+}
+
+.team_show, h2 {
+  background-color: #014347;
+}
+
+.team_show, h1 {
   background-color: #3E5950;
 }
 
@@ -25,6 +73,8 @@
 
 #navbar {
   background-color: #014347;
+  position: fixed;
+  z-index: 1;
 }
 
 #submit {
@@ -51,14 +101,10 @@
 
  .bad {
    background-color: red;
-   // border: 5px solid white;
-   /*color: white;*/
  }
 
  .good {
    background-color: rgba(142, 255, 37, 0.90);
-   // border: 5px solid white;
-   /*color: white;*/
  }
 
  .awesome {
@@ -97,6 +143,10 @@
   background-color: rgb(54, 54, 54);
 }
 
+.teams_details {
+  background-color: #014347
+}
+
 #container
 {
     height:400px;
@@ -121,6 +171,9 @@
     top:350px;
 }
 
+.fixtures {
+  min-height: 600px;
+}
 
 
 

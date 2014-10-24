@@ -14,13 +14,13 @@
     <div class="contain-to-grid" id="navbar">
       <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
         <ul class="title-area">
-          <li class="name"><h1 class="logo"><%= link_to "GOALS GOALS GOALS", root_path %></h1></li>
-          <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+          <li class="name"><h1 class="logo" id="logo"><%= link_to "GOALS GOALS GOALS", root_path %></h1></li>
+          <li class="toggle-topbar menu-icon" ><a href="#"><span></span></a></li>
         </ul>
         <% unless params[:controller] == "matches" && params[:action] == "index" %>
         <section class="top-bar-section">
           <ul class="left">
-            <li class="has-form">
+            <li class="has-form" id="search">
               <div class="row collapse">
                 <form id="target" method="GET" action="/matches">
                   <div class="large-8 small-9 columns">
@@ -52,6 +52,8 @@
       <%= yield %>
     </div>
   </div>
+
+  <footer class="footer">Beards United</footer>
 
 </body>
 </html>

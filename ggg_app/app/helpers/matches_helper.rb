@@ -36,7 +36,11 @@ module MatchesHelper
     end
   end
 
-
+  def div_name(match)
+    if match.div == "E0"
+      "Premiership"
+    end
+  end
 
   # def team_name(team_id)
   #   case team_id

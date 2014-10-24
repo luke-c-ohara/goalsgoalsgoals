@@ -1,3 +1,5 @@
+<br><br><br>
+<nav class= "results">
 <h1>Results</h1>
 
 <p>All results, with half-time and full-time goals.</p>
@@ -20,7 +22,7 @@
 
 <% @results.each do |match| %>
   <tr>
-    <td><%= match.div %></td>
+    <td><%= div_name(match) %></td>
     <td><%= match.season %></td>
     <td><%= match.date.strftime('%d/%m/%y') %></td>
     <td><%= link_to match.hometeam.name, team_url(match.hometeam)%></td>
@@ -34,3 +36,4 @@
   </tr> 
 <% end %>
 </table>
+</nav>

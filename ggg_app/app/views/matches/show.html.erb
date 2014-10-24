@@ -1,4 +1,4 @@
-<br>
+<br><br><br>
 
 <h1><%= @match.hometeam.name %> v <%= @match.awayteam.name %> <%= @match.date %></h1>
 
@@ -70,9 +70,9 @@
   </tr>
   <% @match.hometeam.last_five_results.each do |game| %>
     <% if game.awayteam == @hometeam %>
-        <td><%= game.fthg %> <%= game.ftag %><%= game.hometeam.name %></td>
+        <td><%= game.fthg %>-<%= game.ftag %><%= game.hometeam.name %></td>
     <% else %>
-  <td><%= game.fthg %> <%= game.ftag %><%= game.awayteam.name %></td>
+  <td><%= game.fthg %>-<%= game.ftag %><%= game.awayteam.name %></td>
   <% end %>
   <td><%= ft_goals(game) %></td>  
   <% end %>
@@ -94,9 +94,9 @@
   </tr>
   <% @match.awayteam.last_five_results.each do |game| %>
     <% if game.hometeam == @awayteam %>
-        <td><%= game.fthg %> <%= game.ftag %><%= game.awayteam.name %></td>
+        <td><%= game.fthg %>-<%= game.ftag %> <%= game.awayteam.name %></td>
     <% else %>
-  <td><%= game.fthg %> <%= game.ftag %><%= game.hometeam.name %></td>
+  <td><%= game.fthg %>-<%= game.ftag %> <%= game.hometeam.name %></td>
   <% end %>
   <td><%= ft_goals(game) %></td>
   <% end %>

@@ -17,13 +17,13 @@ class MatchesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @matches }
+      format.json { render json: @matches, root: false }
     end
   end
 
   def results
     @results = Match.where(['date < ?', Date.today]).order("date DESC")
-    
+
   end
 
   def import

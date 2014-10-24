@@ -124,4 +124,7 @@ namespace :csvimport do
     end
   end
 
+  desc "Import all league CSV Data."
+  task :all => [ :team_names_p1, :fixtures_p1]
+
 end

@@ -35,7 +35,7 @@ $(function() {
             $(tmp).append(displayGames(v));
           });
           $('.joined tbody').html(tmp.html());
-          // $("#search-fixtures").slideToggle()
+          $(".joined").slideToggle()
         }
     }); 
   }
@@ -84,7 +84,7 @@ $(function() {
 });
 
 function displayGames(object) {
-  return '<tr><td>'+object.div+ '</td><td>'+object.season+'</td><td>'+object.date+'</td><td>'+object.hometeam_id+'</td><td>'+object.awayteam_id+ '</td></tr>';
+  return '<tr><td>'+object.div+ '</td><td>'+object.season+'</td><td>'+object.date+'</td><td>'+object.hometeam_name+'</td><td>v</td><td>'+object.awayteam_name+ '</td></tr>';
 
 }
 

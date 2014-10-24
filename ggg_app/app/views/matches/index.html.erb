@@ -1,3 +1,5 @@
+<br><br><br>
+<div class='fixtures'>
 <h1>Fixtures</h1>
 
 <% if params[:controller] == "matches" && params[:action] == "index" %>
@@ -29,14 +31,14 @@
     <th></th>
     <th>Away Team</th>
     <th>Last 5</th>
-    <th>Combined</th>
-    <th>Combined</th>
+    <th>Goals Prediction on last 5 games</th>
+    <th>Goals Prediction on season</th>
     <th>More</th>
   </tr>
 
 <% @seven_days.each do |match| %>
   <tr>
-    <td><%= match.div %></td>
+    <td><%= div_name(match) %></td>
     <td><%= match.season %></td>
     <td><%= match.date.strftime('%d/%m/%y') %></td>
     <td><%= link_to match.hometeam.name, team_url(match.hometeam)%></td>
@@ -58,15 +60,17 @@
     <th>Season</th>
     <th>Date</th>
     <th>Home Team</th>
+    <th></th>
     <th>Away Team</th>
   </tr>
 
 <% @fixtures.each do |match| %>
   <tr>
-    <td><%= match.div %></td>
+    <td><%= div_name(match) %></td>
     <td><%= match.season %></td>
     <td><%= match.date.strftime('%d/%m/%y') %></td>
     <td><%= link_to match.hometeam.name, team_url(match.hometeam)%></td>
+    <td>V</td>
     <td><%= link_to match.awayteam.name, team_url(match.awayteam)%></td> 
   </tr> 
 <% end %>
@@ -80,27 +84,16 @@
         <th>Season</th>
         <th>Date</th>
         <th>Home Team</th>
+        <th></th>
         <th>Away Team</th>
       <tr>
     </thead>
     <tbody>
-      <% if @matches %>
-        <% @matches.each do |match| %>
-        <tr>
-          <td><%= match.div %></td>
-          <td><%= match.season %></td>
-          <td><%= match.date %></td>
-          <td><%= match.hometeam_id %></td>
-          <td><%= match.awayteam_id %></td>
-        </tr>
-        <% end %>
-      <% end %>
     </tbody>
   </table>
 </div>
 
-
-
+</div>
 
 
 

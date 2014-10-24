@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
 
   def index
-    @teams = Team.all
+    @teams = Team.all.sort_by &:name
     @matches = Match.all
 
     respond_to do |format|
