@@ -20,14 +20,14 @@ class Team < ActiveRecord::Base
     count_total = last_five_results.map(&:ft_goals?).count.to_f
     count_true = last_five_results.map(&:ft_goals?).count{|r|r}.to_f
 
-    (count_true / count_total) * 100
+    ((count_true / count_total) * 100).round(0)
   end
 
   def form_percentage
     count_total = form.map(&:ft_goals?).count.to_f
     count_true = form.map(&:ft_goals?).count{|r|r}.to_f
 
-    (count_true / count_total) * 100
+    ((count_true / count_total) * 100).round(0)
   end
 
 

@@ -1,6 +1,6 @@
 <br><br><br>
 
-<h1><%= @match.hometeam.name %> v <%= @match.awayteam.name %> <%= @match.date %></h1>
+<h1 class="match_title"><%= @match.hometeam.name %> v <%= @match.awayteam.name %> <%= @match.date %></h1>
 
 <table>
   <tr>
@@ -96,7 +96,7 @@
     <% if game.hometeam == @awayteam %>
         <td><%= game.fthg %>-<%= game.ftag %> <%= game.awayteam.name %></td>
     <% else %>
-  <td><%= game.fthg %>-<%= game.ftag %> <%= game.hometeam.name %></td>
+  <td><%= game.fthg %>-<%= game.ftag %><%= game.hometeam.name %></td>
   <% end %>
   <td><%= ft_goals(game) %></td>
   <% end %>

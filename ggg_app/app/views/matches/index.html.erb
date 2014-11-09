@@ -1,7 +1,6 @@
 <br><br><br>
 <div class='fixtures'>
-<h1>Fixtures</h1>
-
+<h1 class="fixtures_title">Fixtures</h1>
 <% if params[:controller] == "matches" && params[:action] == "index" %>
 <div class="row">
     <div class="large-12 columns">
@@ -17,6 +16,23 @@
         </div>
       </div>
    </div>
+</div>
+
+<div id="search-fixtures" >
+  <table class="joined">
+    <thead>
+      <tr>
+        <th>Division</th>
+        <th>Season</th>
+        <th>Date</th>
+        <th>Home Team</th>
+        <th></th>
+        <th>Away Team</th>
+      <tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
 </div>
      
 
@@ -75,23 +91,6 @@
   </tr> 
 <% end %>
 </table>
-
-<div id="search-fixtures" >
-  <table class="joined">
-    <thead>
-      <tr>
-        <th>Division</th>
-        <th>Season</th>
-        <th>Date</th>
-        <th>Home Team</th>
-        <th></th>
-        <th>Away Team</th>
-      <tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
-</div>
 
 </div>
 
