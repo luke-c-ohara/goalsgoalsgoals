@@ -1,0 +1,40 @@
+<br><br><br>
+<nav class= "results">
+<h1 class="results_title">Results</h1>
+
+<p>All results, with half-time and full-time goals.</p>
+<p>Click on the team name to see their form</p>
+
+<br>
+<table class="results_table">
+  <tr>
+    <th>Division</th>
+    <th>Season</th>
+    <th>Date</th>
+    <th>Home Team</th>
+    <th>Home goals </th>
+    <th>Away goals </th>
+    <th>Away Team</th>
+    <th>HT Home goals</th>
+    <th>HT Away goals</th>
+    <th>Half time BTS</th>
+    <th>Full time BTS</th>
+  </tr>
+
+<% @results.each do |match| %>
+  <tr>
+    <td><%= div_name(match) %></td>
+    <td><%= match.season %></td>
+    <td><%= match.date.strftime('%d/%m/%y') %></td>
+    <td><%= link_to match.hometeam.name, team_url(match.hometeam)%></td>
+    <td><%= match.fthg %></td>
+    <td><%= match.ftag %></td>
+    <td><%= link_to match.awayteam.name, team_url(match.awayteam) %></td> 
+    <td><%= match.hthg %></td>
+    <td><%= match.htag %></td>
+    <td><%= ht_goals(match) %></td>
+    <td><%= ft_goals(match) %></td>
+  </tr> 
+<% end %>
+</table>
+</nav>

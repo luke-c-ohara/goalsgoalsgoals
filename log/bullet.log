@@ -1,0 +1,146 @@
+2014-10-23 12:09:01[WARN] user: lukeohara
+http://localhost:3000/matches
+N+1 Query detected
+  Match => [:hometeam]
+  Add to your finder: :include => [:hometeam]
+N+1 Query method call stack
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:50:in `block in _app_views_matches_index_html_erb__2388084584091074752_70199092421820'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:45:in `_app_views_matches_index_html_erb__2388084584091074752_70199092421820'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/controllers/matches_controller.rb:20:in `index'
+2014-10-23 12:09:01[WARN] user: lukeohara
+http://localhost:3000/matches
+N+1 Query detected
+  Match => [:awayteam]
+  Add to your finder: :include => [:awayteam]
+N+1 Query method call stack
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:53:in `block in _app_views_matches_index_html_erb__2388084584091074752_70199092421820'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:45:in `_app_views_matches_index_html_erb__2388084584091074752_70199092421820'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/controllers/matches_controller.rb:20:in `index'
+2014-10-23 12:09:28[WARN] user: lukeohara
+http://localhost:3000/matches
+N+1 Query detected
+  Match => [:hometeam]
+  Add to your finder: :include => [:hometeam]
+N+1 Query method call stack
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:50:in `block in _app_views_matches_index_html_erb__2388084584091074752_70199092421820'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:45:in `_app_views_matches_index_html_erb__2388084584091074752_70199092421820'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/controllers/matches_controller.rb:20:in `index'
+2014-10-23 12:09:28[WARN] user: lukeohara
+http://localhost:3000/matches
+N+1 Query detected
+  Match => [:awayteam]
+  Add to your finder: :include => [:awayteam]
+N+1 Query method call stack
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:53:in `block in _app_views_matches_index_html_erb__2388084584091074752_70199092421820'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:45:in `_app_views_matches_index_html_erb__2388084584091074752_70199092421820'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/controllers/matches_controller.rb:20:in `index'
+2014-10-23 12:09:42[WARN] user: lukeohara
+http://localhost:3000/matches
+N+1 Query detected
+  Match => [:hometeam]
+  Add to your finder: :include => [:hometeam]
+N+1 Query method call stack
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:50:in `block in _app_views_matches_index_html_erb___4326237915046505610_70200317680980'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:45:in `_app_views_matches_index_html_erb___4326237915046505610_70200317680980'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/controllers/matches_controller.rb:20:in `index'
+2014-10-23 12:09:42[WARN] user: lukeohara
+http://localhost:3000/matches
+N+1 Query detected
+  Match => [:awayteam]
+  Add to your finder: :include => [:awayteam]
+N+1 Query method call stack
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:53:in `block in _app_views_matches_index_html_erb___4326237915046505610_70200317680980'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:45:in `_app_views_matches_index_html_erb___4326237915046505610_70200317680980'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/controllers/matches_controller.rb:20:in `index'
+2014-10-23 12:10:01[WARN] user: lukeohara
+http://localhost:3000/matches
+N+1 Query detected
+  Match => [:hometeam]
+  Add to your finder: :include => [:hometeam]
+N+1 Query method call stack
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:50:in `block in _app_views_matches_index_html_erb___4326237915046505610_70200317680980'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:45:in `_app_views_matches_index_html_erb___4326237915046505610_70200317680980'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/controllers/matches_controller.rb:20:in `index'
+2014-10-23 12:10:01[WARN] user: lukeohara
+http://localhost:3000/matches
+N+1 Query detected
+  Match => [:awayteam]
+  Add to your finder: :include => [:awayteam]
+N+1 Query method call stack
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:53:in `block in _app_views_matches_index_html_erb___4326237915046505610_70200317680980'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:45:in `_app_views_matches_index_html_erb___4326237915046505610_70200317680980'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/controllers/matches_controller.rb:20:in `index'
+2014-10-23 12:10:17[WARN] user: lukeohara
+http://localhost:3000/matches
+N+1 Query detected
+  Match => [:hometeam]
+  Add to your finder: :include => [:hometeam]
+N+1 Query method call stack
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:50:in `block in _app_views_matches_index_html_erb___4326237915046505610_70200317680980'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:45:in `_app_views_matches_index_html_erb___4326237915046505610_70200317680980'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/controllers/matches_controller.rb:20:in `index'
+2014-10-23 12:10:17[WARN] user: lukeohara
+http://localhost:3000/matches
+N+1 Query detected
+  Match => [:awayteam]
+  Add to your finder: :include => [:awayteam]
+N+1 Query method call stack
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:53:in `block in _app_views_matches_index_html_erb___4326237915046505610_70200317680980'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:45:in `_app_views_matches_index_html_erb___4326237915046505610_70200317680980'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/controllers/matches_controller.rb:20:in `index'
+2014-10-23 12:10:40[WARN] user: lukeohara
+http://localhost:3000/matches
+N+1 Query detected
+  Match => [:hometeam]
+  Add to your finder: :include => [:hometeam]
+N+1 Query method call stack
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:50:in `block in _app_views_matches_index_html_erb__4386064325349134524_70138872444660'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:45:in `_app_views_matches_index_html_erb__4386064325349134524_70138872444660'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/controllers/matches_controller.rb:20:in `index'
+2014-10-23 12:10:40[WARN] user: lukeohara
+http://localhost:3000/matches
+N+1 Query detected
+  Match => [:awayteam]
+  Add to your finder: :include => [:awayteam]
+N+1 Query method call stack
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:53:in `block in _app_views_matches_index_html_erb__4386064325349134524_70138872444660'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:45:in `_app_views_matches_index_html_erb__4386064325349134524_70138872444660'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/controllers/matches_controller.rb:20:in `index'
+2014-10-23 12:13:10[WARN] user: lukeohara
+http://localhost:3000/matches
+N+1 Query detected
+  Match => [:hometeam]
+  Add to your finder: :include => [:hometeam]
+N+1 Query method call stack
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:50:in `block in _app_views_matches_index_html_erb__4386064325349134524_70138872444660'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:45:in `_app_views_matches_index_html_erb__4386064325349134524_70138872444660'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/controllers/matches_controller.rb:18:in `index'
+2014-10-23 12:13:10[WARN] user: lukeohara
+http://localhost:3000/matches
+N+1 Query detected
+  Match => [:awayteam]
+  Add to your finder: :include => [:awayteam]
+N+1 Query method call stack
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:53:in `block in _app_views_matches_index_html_erb__4386064325349134524_70138872444660'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/matches/index.html.erb:45:in `_app_views_matches_index_html_erb__4386064325349134524_70138872444660'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/controllers/matches_controller.rb:18:in `index'
+2014-10-23 12:13:20[WARN] user: lukeohara
+http://localhost:3000/teams/1
+N+1 Query detected
+  Match => [:awayteam]
+  Add to your finder: :include => [:awayteam]
+N+1 Query method call stack
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/teams/show.html.erb:37:in `block in _app_views_teams_show_html_erb___993664633275050768_70138879636940'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/teams/show.html.erb:31:in `each'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/teams/show.html.erb:31:in `_app_views_teams_show_html_erb___993664633275050768_70138879636940'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/controllers/teams_controller.rb:30:in `show'
+2014-10-23 12:13:20[WARN] user: lukeohara
+http://localhost:3000/teams/1
+N+1 Query detected
+  Match => [:hometeam]
+  Add to your finder: :include => [:hometeam]
+N+1 Query method call stack
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/teams/show.html.erb:58:in `block in _app_views_teams_show_html_erb___993664633275050768_70138879636940'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/teams/show.html.erb:52:in `each'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/views/teams/show.html.erb:52:in `_app_views_teams_show_html_erb___993664633275050768_70138879636940'
+  /Users/lukeohara/wdi_working/project_three/ggg_app/app/controllers/teams_controller.rb:30:in `show'
