@@ -15,8 +15,8 @@ class TeamsController < ApplicationController
     @teams = Team.all
     @team_page = Team.find(params[:id])
 
-    @home_games = Match.where(hometeam_id: (params[:id])).limit(5).sort_by &:date
-    @away_games = Match.where(awayteam_id: (params[:id])).limit(5).sort_by &:date
+    @home_games = Match.where(hometeam_id: (params[:id])).sort_by &:date
+    @away_games = Match.where(awayteam_id: (params[:id])).sort_by &:date
 
     @all_games = @team_page.matches.where(['date >= ?', Date.today]).sort_by &:date
 
@@ -24,7 +24,7 @@ class TeamsController < ApplicationController
 
     @recent_form = @team_page.matches.where(['date < ?', Date.today]).order("date desc").limit(5)
 
-    @last =  @recent_form.select([:fthg, :ftag, :hometeam_id, :awayteam_id])
+    @last =  @recent_form.select([:fthg, :ftag, :hometeam_id, :awayteam_id, :date])
     
     respond_to do |format|
       format.html 

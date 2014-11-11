@@ -3,11 +3,10 @@ class MatchesController < ApplicationController
   helper MatchesHelper
 
   def index
-    # @all_matches = Match.find( :all, :order => "DATE(date) ASC")
     
     @results = Match.where(['date < ?', Date.today]).order("date DESC")
     @fixtures = Match.where(['date >= ?', Date.today]).order("date ASC")
-    @seven_days = @fixtures.where(['date between ? and ?', Date.today, Date.today + 7]).order("date ASC")
+    @seven_days = @fixtures.where(['date between ? and ?', Date.today, Date.today + 14]).order("date ASC")
 
     if params[:q]
       @matches = Match.search(params[:q])
@@ -38,11 +37,10 @@ class MatchesController < ApplicationController
     @hometeam = @match.hometeam 
     @awayteam = @match.awayteam
 
-    @history_1 = Match.where(hometeam_id: @hometeam, awayteam_id:@awayteam)
-    @history_2 = Match.where(hometeam_id: @awayteam, awayteam_id:@hometeam)
+    @history_home_team = Match.where(hometeam_id: @hometeam, awayteam_id:@awayteam)
+    @history_away_team = Match.where(hometeam_id: @awayteam, awayteam_id:@hometeam)
 
-    @all_history = (@history_1 + @history_2).sort_by &:date
-
+    @all_history = (@history_home_team + @history_away_team).sort_by &:date
 
     respond_to do |format|
       format.html 

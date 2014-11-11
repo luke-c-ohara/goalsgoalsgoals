@@ -9,6 +9,12 @@
   display: none;
 }
 
+th {
+  background-color: #014347;
+  color: #ffffff;
+  text-align: center;
+}
+
 .all_teams th {
   background-color: #014347;
   color: white;
@@ -26,20 +32,20 @@
 }
 
 .joined td, #seven_days td, #all_fixtures td {
-  background-color: rgba(106,113,119,0.2);
+  // background-color: rgba(106,113,119,0.2);
   color: black;
   font-weight: bold;
   text-align: center;
 }
 
-#last_five th, #home_form th, #away_form th, #all_form th, #fixtures th {
+#last_five th, #home_form th, #away_form th, #all_form th, #fixtures th, .match_show th, .match_history th, .match_home_form th, .match_away_form th {
   background-color: #014347;
   color: white;
   text-align: center;
 }
 
 .joined, #seven_days, #all_fixtures {
-  background-color: rgba(106,113,119,0.4);
+  // background-color: rgba(106,113,119,0.4);
   color: white;
 }
 
@@ -50,14 +56,14 @@
 }
 
 .results_table td {
-  background-color: rgba(106,113,119,0.2);
+  // background-color: rgba(106,113,119,0.2);
   color: #014347;
   font-weight: bold;
   text-align: center;
 }
 
 .results_table {
-  background-color: rgba(106,113,119,0.4);
+  // background-color: rgba(106,113,119,0.4);
   color: white;
 }
 
@@ -65,7 +71,7 @@
   color: #014347;
 }
 
-.last_five, .home_form, .away_form, .all_form, .fixtures {
+.last_five, .home_form, .away_form, .all_form, .team_fixtures {
   color: white;
 }
 
@@ -80,20 +86,16 @@ text-align: center;
 font-size: 20px;
 }
 
-.teams {
-  min-height: 500px;
-}
-
-.results {
+.teams, .results, .fixtures, .team_show, .index {
   min-height: 500px;
 }
 
 .about {
   min-height: 500px;
+  margin-top: 80px;
 }
 
 .about p {
-  background-color: #014347;
   margin-top: 20px;
 }
 
@@ -114,6 +116,10 @@ font-size: 20px;
 
 .team_show h2 {
   background-color: #014347;
+}
+
+.splash {
+  bottom: 50px;
 }
 
  #title {
@@ -141,7 +147,7 @@ font-size: 20px;
 }
 
 .top-bar-section ul li {
-  background-color: #014347
+  background-color: #014347;
 }
 
  .bad {
@@ -163,6 +169,8 @@ font-size: 20px;
 
  .ok {
   background-color: orange;
+  text-align: center;
+  border-radius: 10px;
  }
 
  .about h1 {
@@ -172,11 +180,6 @@ font-size: 20px;
  .team_about h1 {
   color: white;
   font-size: 50px;
- }
-
-
- .splash {
-   
  }
 
  .test img {
@@ -195,23 +198,31 @@ font-size: 20px;
   right: 120px;
  }
 
+ .test .index_button {
+  position: absolute;
+  font-family: 'Lobster';
+  font-size: 60px; 
+  top: 300px;
+  right: 120px;
+  background-color: rgba(142, 255, 37, 0.90);
+ }
+
 .logo {
   background-color: rgb(54, 54, 54);
 }
 
-#container
-{
+#container {
     height:400px;
     width:400px;
     position:relative;
 }
 
-.cover
-{    
+.cover {    
     position:absolute;
     left:0;
     top:0;
 }
+
 #text
 {
     z-index:100;
@@ -225,7 +236,8 @@ font-size: 20px;
 
 .about_title {
   font-family: 'Lobster';
-  font-size: 45px;
+  font-size: 60px;
+  color: white;
 }
 
 .index_title, .index_sub, .results_title, .fixtures_title, .teams_title, .team_title, .match_title {

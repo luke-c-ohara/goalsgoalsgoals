@@ -80,6 +80,11 @@ $(function() {
     
   });
 
+  $("body").on("click", "#intro_link", function() {
+    location.href ="/home/about";
+
+  });
+
 
 });
 

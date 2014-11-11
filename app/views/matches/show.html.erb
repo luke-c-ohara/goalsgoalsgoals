@@ -1,104 +1,102 @@
 <br><br><br>
+<div class="row">
+  <h1 class="match_title"><%= @match.hometeam.name %> v <%= @match.awayteam.name %> <%= @match.date.strftime('%d/%m/%y') %></h1>
 
-<h1 class="match_title"><%= @match.hometeam.name %> v <%= @match.awayteam.name %> <%= @match.date %></h1>
+  <table class="match_show">
+    <tr>
+      <th>Home Team</th>
+      <th>Last 5 Matches</th>
+      <th>Season</th>
+      <th>V</th>
+      <th>Away Team</th>
+      <th>Last 5 Matches</th>
+      <th>Season</th>
+    </tr>
 
-<table>
-  <tr>
-    <th>Home Team</th>
-    <th>Last 5 Matches</th>
-    <th>Season</th>
-    <th>V</th>
-    <th>Away Team</th>
-    <th>Last 5 Matches</th>
-    <th>Season</th>
-  </tr>
+    <tr>
+      <td><%= @match.hometeam.name %></td>
+      <td><%= @match.hometeam.form_percentage %>%</td>
+      <td><%= @match.hometeam.last_five_results_percentage %>%</td>
+      <td></td>
+      <td><%= @match.awayteam.name %></td> 
+      <td><%= @match.awayteam.form_percentage %>%</td>
+      <td><%= @match.awayteam.last_five_results_percentage %>%</td>
+    </tr> 
+  </table>
 
-  <tr>
-    <td><%= @match.hometeam.name %></td>
-    <td><%= @match.hometeam.form_percentage %>%</td>
-    <td><%= @match.hometeam.last_five_results_percentage %>%</td>
-    <td></td>
-    <td><%= @match.awayteam.name %></td> 
-    <td><%= @match.awayteam.form_percentage %>%</td>
-    <td><%= @match.awayteam.last_five_results_percentage %>%</td>
-  </tr> 
-</table>
+  <table class='match_history'>
+    <h2 class="about_title">Historic fixtures</h2>
+    <tr>
+      <th>Home Team</th>
+      <th>Home Goals</th>
+      <th></th>
+      <th>Away Goals</th>
+      <th>Away Team</th>
+      <th>Date</th>
+      <th>Season</th>
+      <th>Goals</th>
+    </tr>
 
-<table>
+    <tr>
+        <% @all_history.each do |history| %>
+      <td><%= history.hometeam.name %></td>
+      <td><%= history.fthg %></td>
+      <td><%= "v" %></td>
+      <td><%= history.ftag %></td>
+      <td><%= history.awayteam.name %></td>
+      <td><%= history.date.strftime('%d/%m/%y') %></td>
+      <td><%= history.season %></td>
+      <td><%= ft_goals(history) %></td>
+    </tr>   
+      <% end %>
+  </table>
 
-<table>
-  <tr>
-    <th>Home Team</th>
-    <th>Home Goals</th>
-    <th></th>
-    <th>Away Goals</th>
-    <th>Away Team</th>
-    <th>Dates</th>
-    <th>Season</th>
-    <th>Goals</th>
-  </tr>
-
-  <tr>
-      <% @all_history.each do |history| %>
-    <td><%= history.hometeam.name %></td>
-    <td><%= history.fthg %></td>
-    <td><%= "v" %></td>
-    <td><%= history.ftag %></td>
-    <td><%= history.awayteam.name %></td>
-    <td><%= history.date.strftime('%d/%m/%y') %></td>
-    <td><%= history.season %></td>
-    <td><%= ft_goals(history) %></td>
-  </tr>   
+  <h2 class="about_title"><%= @match.hometeam.name %>'s' Last 5 games</h2>
+  <table class="match_home_form">
+    <tr>
+     <th>Team</th>
+     <th>BTTS</th>
+     <th>Team</th>
+     <th>BTTS</th>
+     <th>Team</th>
+     <th>BTTS</th>
+     <th>Team</th>
+     <th>BTTS</th>
+     <th>Team</th>
+     <th>BTTS</th>
+    </tr>
+    <% @match.hometeam.last_five_results.each do |game| %>
+      <% if game.awayteam == @hometeam %>
+          <td><%= game.hometeam.name %></td>
+      <% else %>
+    <td><%= game.awayteam.name %></td>
     <% end %>
-</table>
-  
-</table>
+    <td><%= ft_goals(game) %></td>  
+    <% end %>
+  </table>
 
-<h2>Home team's Last 5 games</h2>
-<table>
-  <tr>
-    <th>Score</th>
-    <th>Goals</th>
-    <th>Away Team</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <% @match.hometeam.last_five_results.each do |game| %>
-    <% if game.awayteam == @hometeam %>
-        <td><%= game.fthg %>-<%= game.ftag %><%= game.hometeam.name %></td>
-    <% else %>
-  <td><%= game.fthg %>-<%= game.ftag %><%= game.awayteam.name %></td>
-  <% end %>
-  <td><%= ft_goals(game) %></td>  
-  <% end %>
-</table>
-
-<h2>Away team's Last 5 games</h2>
-<table>
-  <tr>
-    <th>Score</th>
-    <th>Goals</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <% @match.awayteam.last_five_results.each do |game| %>
-    <% if game.hometeam == @awayteam %>
-        <td><%= game.fthg %>-<%= game.ftag %> <%= game.awayteam.name %></td>
-    <% else %>
-  <td><%= game.fthg %>-<%= game.ftag %><%= game.hometeam.name %></td>
-  <% end %>
-  <td><%= ft_goals(game) %></td>
-  <% end %>
-</table>
+  <h2 class="about_title"><%= @match.awayteam.name %>'s Last 5 games</h2>
+  <table class="match_away_form">
+    <tr>
+      <th>Team</th>
+      <th>BTTS</th>
+      <th>Team</th>
+      <th>BTTS</th>
+      <th>Team</th>
+      <th>BTTS</th>
+      <th>Team</th>
+      <th>BTTS</th>
+      <th>Team</th>
+      <th>BTTS</th>
+    </tr>
+    <% @match.awayteam.last_five_results.each do |game| %>
+      <% if game.hometeam == @awayteam %>
+          <td><%= game.awayteam.name %></td>
+      <% else %>
+    <td><%= game.hometeam.name %> </td>
+    <% end %>
+    <td><%= ft_goals(game) %></td>
+    <% end %>
+  </table>
+</div>
 
